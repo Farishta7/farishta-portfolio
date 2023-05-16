@@ -1,67 +1,104 @@
 import { useState } from 'react';
 import '../App.css';
 
+import { send } from 'emailjs-com';
+
 const Footer = () => {
-  const [firstName, setFirstName] = useState('');
-  const [secondName, setSecondName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [secondName, setSecondName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [message, setMessage] = useState('');
+  const [toSend, setToSend] = useState({
+    from_name: '',
+    to_name: 'Farishta',
+    message: '',
+    reply_to: '',
+  });
+
+  
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault();  // prevents the page from reloading when you hit “Send”
 
-    // code to send me an email
+    send('service_vcjdsvp', 'template_2qmuowx', toSend, 'pInfk9oD_4v_b2LVo')
+     .then((result) => {
+         // show the user a success message
+       console.log('SUCCESS!', result.status, result.text);
+       setToSend({ ...toSend, from_name: '', to_name: '', message: '', reply_to: ''})
+         
+     })
+     .catch((error) => {
+      // show the user an error
+      console.log('FAILED...', error);
+     })
 
-    setFirstName('');
-    setSecondName('');
-    setEmail('');
-    setMessage('');
+    
   }
+
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
 
   return (
       <div className="footer-div">
       <h1 style={{ color: "black", textAlign: "center", marginTop: "-50px" }}>
-        Contact methods below
+        Contact me below!
       </h1>
+      <a
+            href='https://www.linkedin.com/in/farishtatq/'
+            target='blank'
+            style={{ color: "#000000", textDecoration: 'underline', fontSize: '2rem' }}>My LinkedIn</a>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="newComment" >First name:</label>
+        <label htmlFor="newComment" >Your name</label>
         <br />
         <input
           type='text'
           style={{ marginTop: "10px", marginBottom: "10px" }}
-          id="firstName" value={firstName}
-          onChange={(event) => setFirstName(event.target.value)}
+          id="firstName"
+          value={toSend.from_name}
+          // placeholder='from name'
+          onChange={handleChange}
           required
+          name="from_name"
         />
         <br />
-
-        <label htmlFor="newComment" >Second name:</label>
+        {/* <label htmlFor="newComment" >To:</label>
         <br />
         <input
-          type='text' style={{ marginTop: "10px", marginBottom: "10px" }}
-          id="secondName" value={secondName}
-          onChange={(event) => setSecondName(event.target.value)}
+          type='text'
+          style={{ marginTop: "10px", marginBottom: "10px" }}
+          id="to"
+          value={toSend.to_name}
+          placeholder='to name'
+          onChange={handleChange}
           required
+          name="to_name"
         />
-        <br />
+        <br/> */}
 
-        <label htmlFor="newComment" >Email address:</label>
+        <label htmlFor="newComment" >Your email address</label>
         <br />
         <input
-          type='text' style={{ marginTop: "10px", marginBottom: "10px" }}
-          id="email" value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          type='text'
+          style={{ marginTop: "10px", marginBottom: "10px" }}
+          id="email"
+          value={toSend.reply_to}
+          onChange={handleChange}
           required
+          // placeholder='Your email'
+          name="reply_to"
         />
         <br />
 
-        <label htmlFor="newComment" >Your message:</label>
+        <label htmlFor="newComment" >Message to send</label>
         <br />
         <textarea
           style={{ marginTop: "10px", marginBottom: "10px" }}
-          id="message" value={message}
-          onChange={(event) => setMessage(event.target.value)}
+          id="message"
+          value={toSend.message}
+          onChange={handleChange}
           required
+          name='message'
         />
         <br />
 
