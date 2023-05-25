@@ -14,14 +14,25 @@
 
 .title {
   width: 45rem; 
-  border-radius: 6px;
   max-width:100%;
   max-height:100%;
 }
 
+.netlify-image {
+  border-radius: 10px;
+  max-width:75%;
+  max-height:75%;
+}
+
+
+.render-image {
+  border-radius: 10px;
+  max-width: 75%;
+  max-height: 75%;
+}
+
 .nav {
   text-align: left;
-  /* background-color: #070c43; */
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -66,6 +77,15 @@ a:hover {
   color: #408fa9;
 }
 
+.parent-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  margin: 1rem;
+  
+}
 .text-block {
   word-wrap: break-word; 
   max-width: 850px;
@@ -79,40 +99,45 @@ a:hover {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.parent-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2rem;
+.project-tiles {
+  word-wrap: break-word; 
+  max-width: 250px;
+  max-height: 100px;
+  display: inline-block;
+  background: rgb(245,222,179, 0.6);
+  border-radius: 10px;
+  font-size: 1.3rem;
+  padding: 1.2rem;
   margin: 1rem;
-  
+  color: rgb(9, 10, 8);
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.project-tiles-style {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px
+}
+
+
+
 
 h1{
   text-align: center;
 }
-/* FOOTER */
-.footer-div {
-  /* padding: 80px 60px;
-  background: 	#780f0f64;
-  position: absolute;
-  bottom: 0;
-  width: 100%;  */
 
+.footer-div {
   position: relative;
   background-color: #780f0f64;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 80px;
+  padding: 1rem;
+  min-height: 5rem;
   text-align: center;
-}
-
-@media (max-width: 1000px) {
-  .styled-footer-div {
-    padding: 70px 30px;
-  }
+  align-items: center;
 }
 
 .footer-div-on-pages {
@@ -134,3 +159,61 @@ h1{
   background-color: #F08080;
 }
 
+
+.container {
+  display: flex-start; 
+  /* The above is the equivalent of doing "display: flex;" and "justify-content: start;" together. If you don't do this, it will show warning in the terminal*/
+  align-items: center;
+}
+
+.linkedIn-div {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+  padding-top: 2rem;
+}
+
+.linkedIn-text {
+  color: #000;
+  font-size: 1.5rem;
+  padding-left: 0.6rem;
+}
+
+.githublogo-div {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.githublogo-text {
+  color: #000;
+  font-size: 1.5rem;
+  padding-left: 0.6rem;
+}
+
+.footer-form-div {
+  /* display: flex; 
+  align-items: center;
+  justify-content: center;
+  background: rgb(245,222,179, 0.25)	; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.form-text-style {
+  word-wrap: break-word; 
+  max-width: 40rem;
+  background: rgb(245,222,179, 0.25);
+  border-radius: 6px;
+  font-size: 1.3rem;
+  padding: 2rem;
+  padding-right: 6rem;
+  padding-left: 6rem;
+  color: rgb(9, 10, 8);
+  font-family: Arial, Helvetica, sans-serif;
+}
