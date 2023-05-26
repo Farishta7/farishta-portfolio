@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import '../App.css';
-
+import linkedinlogo from '../linkedinlogo.png';
+import githublogo from '../github-logo.png'
 import { send } from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {
-  // const [firstName, setFirstName] = useState('');
-  // const [secondName, setSecondName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [message, setMessage] = useState('');
   const [toSend, setToSend] = useState({
     from_name: '',
     to_name: 'Farishta',
@@ -15,7 +14,12 @@ const Footer = () => {
     reply_to: '',
   });
 
-  
+  const notifyMe = () => { 
+    toast.success('Your message has been sent!', {
+      position: toast.POSITION.BOTTOM_RIGHT
+  });
+  }
+  // toast("Your message has been sent!");
 
   const handleSubmit = (event) => {
     event.preventDefault();  // prevents the page from reloading when you hit “Send”
@@ -24,15 +28,14 @@ const Footer = () => {
      .then((result) => {
          // show the user a success message
        console.log('SUCCESS!', result.status, result.text);
-       setToSend({ ...toSend, from_name: '', to_name: '', message: '', reply_to: ''})
-         
+       setToSend({ ...toSend, from_name: '', to_name: '', message: '', reply_to: '' })
+       
+       notifyMe();
      })
      .catch((error) => {
       // show the user an error
       console.log('FAILED...', error);
      })
-
-    
   }
 
   const handleChange = (e) => {
@@ -40,18 +43,13 @@ const Footer = () => {
   };
 
   return (
-      <div className="footer-div">
-      <h1 style={{ color: "black", textAlign: "center", marginTop: "-50px" }}>
-        Contact me below!
-      </h1>
-      <a
-            href='https://www.linkedin.com/in/farishtatq/'
-            target='blank'
-            style={{ color: "#000000", textDecoration: 'underline', fontSize: '2rem' }}>My LinkedIn</a>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="newComment" >Your name</label>
-        <br />
-        <input
+    <div className="footer-div">
+      <h1 >Contact me below!</h1>
+      <div className='footer-form-div'>
+        <form onSubmit={handleSubmit} className='form-text-style'>
+          <label htmlFor="newComment" style={{ fontSize: '1.5rem' }}>Your name</label>
+          <br />
+          <input
           type='text'
           style={{ marginTop: "10px", marginBottom: "10px" }}
           id="firstName"
@@ -59,26 +57,12 @@ const Footer = () => {
           // placeholder='from name'
           onChange={handleChange}
           required
-          name="from_name"
-        />
-        <br />
-        {/* <label htmlFor="newComment" >To:</label>
-        <br />
-        <input
-          type='text'
-          style={{ marginTop: "10px", marginBottom: "10px" }}
-          id="to"
-          value={toSend.to_name}
-          placeholder='to name'
-          onChange={handleChange}
-          required
-          name="to_name"
-        />
-        <br/> */}
-
-        <label htmlFor="newComment" >Your email address</label>
-        <br />
-        <input
+            name="from_name"
+          />
+          <br />
+          <label htmlFor="newComment" style={{ fontSize: '1.5rem' }}>Your email address</label>
+          <br />
+          <input
           type='text'
           style={{ marginTop: "10px", marginBottom: "10px" }}
           id="email"
@@ -90,7 +74,7 @@ const Footer = () => {
         />
         <br />
 
-        <label htmlFor="newComment" >Message to send</label>
+        <label htmlFor="newComment" style={{fontSize: '1.5rem'}}>Message to send</label>
         <br />
         <textarea
           style={{ marginTop: "10px", marginBottom: "10px" }}
@@ -101,9 +85,38 @@ const Footer = () => {
           name='message'
         />
         <br />
+        <ToastContainer />
 
-        <button type="submit" className="add-comment-button">Send my email to Farishta</button>
+          <button type="submit" className="add-comment-button" >Send my email to Farishta</button>
+
+
+
+          
+          <div className='linkedIn-div' >
+        <img src={linkedinlogo} alt="LinkedIn logo" width="40" height="40" />
+        <a
+            href='https://www.linkedin.com/in/farishtatq/'
+          target='blank'
+          className='linkedIn-text'
+        >LinkedIn</a>
+      </div>
+      <div className='githublogo-div' >
+        <img src={githublogo} alt="Github logo" width="40" height="40" />
+        <a
+            href='https://www.linkedin.com/in/farishtatq/'
+          target='blank'
+          className='githublogo-text'
+        >
+          Github
+        </a>
+      </div>
         </form>
+
+        
+      </div>
+      
+      
+      
       <p>©2023 Farishta Tariq Portfolio</p>
     </div>
   )
