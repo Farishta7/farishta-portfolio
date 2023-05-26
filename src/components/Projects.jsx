@@ -1,16 +1,18 @@
 import ReactPlayer from 'react-player';
 import logo from '../maximize.png'
+import ncNewsNetlify from '../netlify.png';
+import ncNewsRender from '../render.png'
 import '../App.css';
-import Footer from './Footer'
-
+import Footer from './Footer';
 
 const Projects = () => {
     return (
       <>
-        <h1>My Projects</h1>
+        <h1 class='text-4xl ...'>My Projects</h1>
         <div className='parent-div'>
+          
         <div className="text-block">
-          <h3>Northcoders Back-end Project:</h3>
+          <h3>Northcoders Back-end Project</h3>
             <p>The back-end project was the most challenging part of the bootcamp for me as I initially struggled to understand <span className='highlighted-text'>Model-View-Controller pattern </span> and connecting models with controllers. 
             </p>
             <p>The project is a replication of a news website with a few endpoints.</p>
@@ -18,19 +20,25 @@ const Projects = () => {
             <p> 
             
             To test all the APIs, I used <span className='highlighted-text'>Insomnia</span> which helped to debug as well. Finally, part of the project also included using <span className='highlighted-text'>SQL</span> to retrieve specific data from my database and to execute all the required queries.</p>
-          {/* <a
+          <a
             href="https://github.com/Farishta7/farishtas-back-end-project"
             target='blank'
             style={{ color: "#B22222", textDecoration: 'underline' }}>Github - Back-end Project </a>
           
-          <img src={logo} alt="new window logo" width="15" height="15" /> */}
-          {/* <br /> */}
-          <a
+          <img src={logo} alt="new window logo" width="15" height="15" />
+            <br />
+            <br />
+            <div style={{ paddingBottom: '20px' }}>
+            <a
              href="https://farishtas-project.onrender.com/api/articles"
              target='blank'
-             style={{ color: "#B22222", textDecoration: 'underline' }}
-          >Render - back-end project - "NC News" </a>
-          <img src={logo} alt="new window logo" width="15" height="15" />
+             style={{ color: "#B22222", textDecoration: 'underline',  }}
+            >Render - back-end project - "NC News" </a>
+            <img src={logo} alt="new window logo" width="15" height="15" />
+            </div>
+            <a href="https://farishtas-project.onrender.com/api/articles" target="_blank" rel="noreferrer">
+            <img src={ncNewsRender} className='render-image' alt="new window logo"  />
+            </a>
           <p>Examples of GET request endpoints to try on Render above:</p>
           <ul>
             <li>/api/topics</li>
@@ -46,11 +54,19 @@ const Projects = () => {
 
             <p>I also learned about the importance of <span className='highlighted-text'>accessibility</span> and to try and make the website easy to use for as many different people and situations as possible. For example, I did not use any clashing colours or leave any inputs without labels. </p>
             <p>Last but not least, I used <span className='highlighted-text'>Netlify</span> to host the website:</p>
-          <a
+          
+
+            <div style={{ paddingBottom: '20px' }}>
+            <a
             href='https://farishta-nc-news.netlify.app/'
             target='blank'
-            style={{ color: "#B22222", textDecoration: 'underline' }}>Netlify - NC News</a>
+                style={{ color: "#B22222", textDecoration: 'underline' }}>Netlify - "NC News" </a>
+              
             <img src={logo} alt="new window logo" width="15" height="15" />
+            </div>
+            <a href="https://farishta-nc-news.netlify.app/" target="_blank" rel="noreferrer">
+                <img className='netlify-image' src={ncNewsNetlify} alt="new window logo" />
+            </a>
           </div>
           <div className="text-block">
             <h3>Northcoders Group Project</h3>
@@ -64,7 +80,7 @@ const Projects = () => {
             <a
             href='https://github.com/Farishta7/event-buddy'
             target='blank'
-            style={{ color: "#B22222", textDecoration: 'underline' }}>Github - event-buddy app</a>
+            style={{ color: "#B22222", textDecoration: 'underline' }}>Github - Event Buddy App</a>
             <img src={logo} alt="new window logo" width="15" height="15" />
 
             <br></br>
@@ -72,12 +88,19 @@ const Projects = () => {
           <div className='group-project-video-div'>
             <ReactPlayer
               className='group-project-video'
-              url={'https://youtu.be/7tYZa7_appQ'}
+              url={'https://youtu.be/mO6DO84zNZE'}
               controls={true}
               width="100%"
               height="100%"
             />
             </div>
+            <br></br>
+            <a
+            href='https://github.com/Farishta7/event-buddy'
+            target='blank'
+            style={{ color: "#B22222", textDecoration: 'underline' }}
+            >Event Buddy - further details</a>
+            <img src={logo} alt="new window logo" width="15" height="15" />
             </div>
             {/* <h3>Northcoders Mini projects</h3>
             <h3>My C# Project</h3>
