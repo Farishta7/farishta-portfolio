@@ -4,7 +4,7 @@ import '../App.css';
 const Education = () => {
   return (
     <>
-      <h1 class='text-4xl ...'>Educationnnn</h1>
+      <h1 class='text-4xl ...'>Education</h1>
       <div className='parent-div'>
         <div className="text-block">
           
